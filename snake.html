@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 1000px;
+            height: 650px;
+            border: 1px solid #000;
+            margin: 0 auto;
+            position: relative;
+        }
+        #box>div{
+            position: absolute;
+
+        }
+        #box>div>div{
+            position:absolute;
+            background-color:green;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="snake"></div>
+    </div>
+</body>
+<script src="snake.js"></script>
+<script>
+    var sn = new snake(5);
+    sn.init()
+</script>
