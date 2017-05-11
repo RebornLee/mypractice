@@ -3,22 +3,24 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+
 	<style type="text/css">
 	*{
 		margin: 0;
 		padding: 0;
 	}
 
-	#faBox{
+	.faBox{
 		width:200px;
 		height: 200px;
-		border: 1px solid #000;
+		/* border: 1px solid #000; */
 		position: absolute;
 		top: 200px;
 		left:300px;
 		transform-origin: top left;
+		transform: translateY(0) rotate(-135deg);
 	}
-	#sonBox{
+	.faBox>div{
 		width: 50px;
 		height: 50px;
 		border-radius: 50%;
@@ -27,66 +29,47 @@
 		right:50%;
 		top: 50%;
 		transform: translate(50%,-50%);
+
 	}
-	@keyframes loading{
-		0%{
-			transform: translateY(0) rotate(-90deg);
-		}
-		33%{
-			transform: translateY(0px) rotate(45deg);
-		}
-		80%{
-			transform: translateY(0px) rotate(135deg);
-		}
-		100%{
-			transform: translateY(-100px) rotate(135deg);
-		}
-	}
-	@keyframes son{
-		0%{
-			
-		}
-		33%{
-			box-shadow: 1px -1px 1px 0 blue;
-			box-shadow: 2px -2px 1px 0 blue;
-			box-shadow: 3px -3px 1px 0 blue;
-			box-shadow: 4px -4px 1px 0 blue;
-			box-shadow: 5px -5px 1px 0 blue;
-			box-shadow: 6px -6px 1px 0 blue;
-			box-shadow: 7px -7px 1px 0 blue;
-			box-shadow: 8px -8px 1px 0 blue;
-			box-shadow: 9px -9px 1px 0 blue;
-			box-shadow: 10px -10px 1px 0 blue;
-			box-shadow: 11px -11px 1px 0 blue;
-		}
-		80%{
-			box-shadow: 1px -1px 1px 0 blue;
-			box-shadow: 2px -2px 1px 0 blue;
-			box-shadow: 3px -3px 1px 0 blue;
-			box-shadow: 4px -4px 1px 0 blue;
-			box-shadow: 5px -5px 1px 0 blue;
-			box-shadow: 6px -6px 1px 0 blue;
-			box-shadow: 7px -7px 1px 0 blue;
-			box-shadow: 8px -8px 1px 0 blue;
-			box-shadow: 9px -9px 1px 0 blue;
-			box-shadow: 10px -10px 1px 0 blue;
-			box-shadow: 11px -11px 1px 0 blue;
-		}
-		100%{
-			
-		}
-	}
-	.anmiateFa{
-		animation: linear  3s 0s    loading;
-	}
-	.anmiateSon{
-		animation: linear  3s 0s    son;
+	@keyframes loading {
+			0%{
+				transform: translateY(0) rotate(-135deg);
+			}
+			50%{
+				transform: translateY(0px) rotate(45deg);
+			}
+			75%{
+				transform: translateY(0px) rotate(135deg);
+			}
+			100%{
+				transform: translateY(-300px) rotate(135deg);
+			}
 	}
 	</style>
 </head>
 <body>
-	<div id="faBox" class="anmiateFa"> 
-		<div id="sonBox" class="anmiateSon"></div>
-	</div>
 </body>
+	<script>
+		var style = document.createElement("style");
+		var head = document.getElementsByTagName("head")[0];
+		var body = document.getElementsByTagName("body")[0];
+		var sy = "";
+		var num =200;
+		//生成小球
+		for(var i = 0 ; i<num ; i++ ){
+			var faBox = document.createElement("div");
+			var div = document.createElement("div");
+			faBox.className = "faBox anmiate" + i;
+			faBox.appendChild(div);
+			body.appendChild(faBox);
+
+		}
+		for(var i = 0 ; i<num ; i++ ){
+			 sy += ".anmiate"+ i +"{animation: linear  1s " + i/500 +"s    loading;} "
+		}
+		style.innerHTML = sy;
+		head.appendChild(style);
+		var faBox = document.getElementsByClassName("faBox");
+
+	</script>
 </html>
