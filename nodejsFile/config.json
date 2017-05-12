@@ -1,0 +1,21 @@
+{
+    "rootName":"initProject",
+    "data":[
+        {
+            "type":"dir",
+            "name":"js"
+        },
+        {
+            "type":"dir",
+            "name":"css"
+        },
+        {
+            "type":"file",
+            "name":"index.html"
+        },
+        {
+            "type":"file",
+            "name":"NotFound.html"
+        }
+    ]
+}
