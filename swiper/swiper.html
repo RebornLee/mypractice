@@ -26,14 +26,14 @@
     .swiper-container {
         width: 80%;
         height: 300px;
-        
-        
+
+
     }
     .swiper-slide {
         text-align: center;
         font-size: 18px;
         background: red;
-        
+
         /* Center slide text vertically */
         display: -webkit-box;
         display: -ms-flexbox;
@@ -48,9 +48,20 @@
         -webkit-align-items: center;
         align-items: center;
     }
+    .abc{
+        width: 100px;
+        height: 30px;
+        background-color: rgba(0,0,0,.5);
+        border-radius:0;
+    }
     </style>
 </head>
 <body>
+    <a href="">
+        <div>
+
+        </div>
+    </a>
     <!-- Swiper -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
@@ -72,6 +83,10 @@
 
     <!-- Initialize Swiper -->
     <script>
+    var data = {
+        con:["a","b","c","d","e"];
+        data
+    }
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         nextButton: '.swiper-button-next',
@@ -80,7 +95,12 @@
         spaceBetween: 1,
         centeredSlides: true,
         autoplay: 3000,
-        autoplayDisableOnInteraction: false
+        autoplayDisableOnInteraction: false,
+        paginationBulletRender: function (swiper, index, className) {
+            console.log(data.con)
+            var i = index;
+            return '<span class="' + className + ' abc">' + data.con[i] + '</span>';
+        }
     });
     </script>
 </body>
